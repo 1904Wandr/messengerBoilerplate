@@ -163,11 +163,11 @@ module.exports = class Profile {
             }
           ]
         },
-        {
-          title: i18n.__("menu.suggestion"),
-          type: "postback",
-          payload: "CURATION"
-        },
+        // {
+        //   title: i18n.__("menu.suggestion"),
+        //   type: "postback",
+        //   payload: "CURATION"
+        // },
         {
           type: "web_url",
           title: i18n.__("menu.shop"),

@@ -66,12 +66,16 @@ module.exports = class Order {
   )
   // console.log("DATA: ", data)
   event = await data;
-eventName = event.events[0].name;
-eventSite = event.events[0].event_site_url;
+  eventName = event.events[0].name;
+  eventSite = event.events[0].event_site_url;
+  return data
 };
 
-getYelp();
-console.log("WHAT", event)
+ getYelp().then(results => {
+   event = results;
+   console.log("EVENT ", event)
+   response.push(Response.genText(event.events[0].name));
+ });
 
 
         response = [

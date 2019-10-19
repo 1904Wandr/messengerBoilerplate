@@ -77,41 +77,45 @@ module.exports = class Receive {
     let greeting = this.firstEntity(this.webhookEvent.message.nlp, "greetings");
 
     let message = this.webhookEvent.message.text.trim().toLowerCase();
+    //   response = Order.handlePayload("ORDER_NUMBER");
 
     let response;
 
-    if (
-      (greeting && greeting.confidence > 0.8) ||
-      message.includes("start over")
-    ) {
-      response = Response.genNuxMessage(this.user);
-    } else if (Number(message)) {
-      response = Order.handlePayload("ORDER_NUMBER");
-    } else if (message.includes("#")) {
-      response = Survey.handlePayload("CSAT_SUGGESTION");
-    } else if (message.includes(i18n.__("care.help").toLowerCase())) {
-      let care = new Care(this.user, this.webhookEvent);
-      response = care.handlePayload("CARE_HELP");
-    } else {
-      response = [
-        Response.genText(
-          i18n.__("fallback.any", {
-            message: this.webhookEvent.message.text
-          })
-        ),
-        Response.genText(i18n.__("get_started.guidance")),
-        Response.genQuickReply(i18n.__("get_started.help"), [
-          {
-            title: i18n.__("menu.suggestion"),
-            payload: "CURATION"
-          },
-          {
-            title: i18n.__("menu.help"),
-            payload: "CARE_HELP"
-          }
-        ])
-      ];
-    }
+    response = Order.handlePayload("ORDER_NUMBER");
+    //   response = Order.handlePayload("ORDER_NUMBER");
+
+    // if (
+    //   (greeting && greeting.confidence > 0.8) ||
+    //   message.includes("start over")
+    // ) {
+    //   response = Response.genNuxMessage(this.user);
+    // } else if (Number(message)) {
+    //   response = Order.handlePayload("ORDER_NUMBER");
+    // } else if (message.includes("#")) {
+    //   response = Survey.handlePayload("CSAT_SUGGESTION");
+    // } else if (message.includes(i18n.__("care.help").toLowerCase())) {
+    //   let care = new Care(this.user, this.webhookEvent);
+    //   response = care.handlePayload("CARE_HELP");
+    // } else {
+    //   response = [
+    //     Response.genText(
+    //       i18n.__("fallback.any", {
+    //         message: this.webhookEvent.message.text
+    //       })
+    //     ),
+    //     Response.genText(i18n.__("get_started.guidance")),
+    //     Response.genQuickReply(i18n.__("get_started.help"), [
+    //       {
+    //         title: i18n.__("menu.suggestion"),
+    //         payload: "CURATION"
+    //       },
+    //       {
+    //         title: i18n.__("menu.help"),
+    //         payload: "CARE_HELP"
+    //       }
+    //     ])
+    //   ];
+    // }
 
     return response;
   }

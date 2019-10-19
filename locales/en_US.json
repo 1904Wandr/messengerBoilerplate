@@ -38,7 +38,7 @@
     "show": "Another look"
   },
   "order": {
-    "prompt": "We'll be happy to help you. Select from the following",
+    "prompt": "Let me know where you are so I can find fun and exciting activities near you.",
     "search": "Search by order number",
     "account": "Link my Account",
     "dialog": "Account linking dialog",

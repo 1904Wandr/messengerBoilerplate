@@ -1,5 +1,4 @@
-const express = require('express')
-const app = express()
+
 const apiKey = require('./secrets')
 const axios = require('axios')
 
@@ -16,6 +15,3 @@ app.get('/restaurantsWithinArea', async (req, res, next) => {
   res.send(data)
 })
 
-app.listen(5000, () => {
-  console.log('listening')
-})

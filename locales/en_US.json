@@ -39,9 +39,9 @@
   },
   "order": {
     "prompt": "Let me know where you are so I can find fun and exciting activities near you.",
-    "search": "Search by order number",
-    "account": "Link my Account",
-    "dialog": "Account linking dialog",
+    "search": "Hold on while I find matches for you.",
+    "account": "Locate me!",
+    "dialog": "Hold on while I find matches for you.",
     "searching": "Searching for your last order...",
     "number": "Sure, please write the order number",
     "status": "Your order is on it’s way, expect to have it in 3 days."
